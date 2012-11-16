@@ -1,0 +1,41 @@
+NAME
+    YAML::Tiny::Color - Dump YAML with color
+
+VERSION
+    version 0.01
+
+SYNOPSIS
+     use YAML::Tiny::Color;
+     say Dump({your => "data"});
+
+DESCRIPTION
+    This module dumps your data structure as YAML with color using ANSI
+    escape sequences. To change the colors, see %theme in source code.
+
+VARIABLES
+  $YAML::Tiny::Color::LineNumber => BOOL (default: 0)
+    Whether to include line numbers in dumps.
+
+FUNCTIONS
+  Dump
+    Exported by default. Dump data as YAML. Die on errors.
+
+ACKNOWLEDGEMENTS
+    YAML dumping code stolen from YAML::Tiny (1.51).
+
+SEE ALSO
+    JSON::Color
+
+    At the time of this writing, none of syntax highlighting libraries on
+    CPAN support YAML. For alternatives, you might want to take a look at
+    Python's Pygments or Ruby's coderay.
+
+AUTHOR
+    Steven Haryanto <stevenharyanto@gmail.com>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2012 by Steven Haryanto.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
