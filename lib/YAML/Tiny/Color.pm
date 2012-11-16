@@ -12,7 +12,7 @@ require Exporter;
 our @ISA    = qw(Exporter);
 our @EXPORT = qw(Dump);
 
-our $VERSION = '0.01'; # VERSION
+our $VERSION = '0.02'; # VERSION
 
 our $LineNumber = 0;
 
@@ -56,7 +56,7 @@ our %theme = (
     end_number          => RESET,
     start_bool          => CYAN,
     end_bool            => RESET,
-    start_null          => CYAN,
+    start_null          => BOLD . CYAN,
     end_null            => RESET,
     start_hash_key      => MAGENTA,
     end_hash_key        => RESET,
@@ -116,17 +116,22 @@ sub _write_string {
 
 sub _write_scalar {
     my $string = $_[1];
+    #say "$string -> ", looks_like_number($string);
     my $is_hkey = $_[3];
 
-    my ($sq, $eq, $ss, $es);
+    my ($sq, $eq, $sn, $en, $ss, $es);
     if ($is_hkey) {
         $sq = $theme{start_hash_key};
         $eq = $theme{end_hash_key};
+        $sn = $theme{start_hash_key};
+        $en = $theme{end_hash_key};
         $ss = $theme{start_hash_key};
         $es = $theme{end_hash_key};
     } else {
         $sq = $theme{start_quote};
         $eq = $theme{end_quote};
+        $sn = $theme{start_number};
+        $en = $theme{end_number};
         $ss = $theme{start_string};
         $es = $theme{end_string};
     }
@@ -153,7 +158,11 @@ sub _write_scalar {
             $sq, "'", $eq,
         );
     }
-    return join("", $ss, $string, $es);
+    if (looks_like_number($string) =~ /^(4|12|4352|8704)$/o) {
+        return join("", $sn, $string, $en);
+    } else {
+        return join("", $ss, $string, $es);
+    }
 }
 
 sub _write_array {
@@ -263,7 +272,7 @@ YAML::Tiny::Color - Dump YAML with color
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
