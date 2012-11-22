@@ -12,7 +12,7 @@ require Exporter;
 our @ISA    = qw(Exporter);
 our @EXPORT = qw(Dump);
 
-our $VERSION = '0.02'; # VERSION
+our $VERSION = '0.03'; # VERSION
 
 our $LineNumber = 0;
 
@@ -272,7 +272,7 @@ YAML::Tiny::Color - Dump YAML with color
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 

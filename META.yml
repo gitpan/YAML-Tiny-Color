@@ -14,8 +14,9 @@ meta-spec:
   version: 1.4
 name: YAML-Tiny-Color
 requires:
+  Term::ANSIColor: 3.00
   perl: 5.010001
 resources:
   homepage: http://metacpan.org/dist/YAML-Tiny-Color
   repository: http://github.com/sharyanto/perl-YAML-Tiny-Color
-version: 0.02
+version: 0.03

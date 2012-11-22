@@ -17,12 +17,13 @@ my %module_build_args = (
     "Steven Haryanto <stevenharyanto\@gmail.com>"
   ],
   "dist_name" => "YAML-Tiny-Color",
-  "dist_version" => "0.02",
+  "dist_version" => "0.03",
   "license" => "perl",
   "module_name" => "YAML::Tiny::Color",
   "recommends" => {},
   "recursive_test_files" => 1,
   "requires" => {
+    "Term::ANSIColor" => "3.00",
     "perl" => "5.010001"
   },
   "script_files" => []

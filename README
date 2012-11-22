@@ -2,7 +2,7 @@ NAME
     YAML::Tiny::Color - Dump YAML with color
 
 VERSION
-    version 0.02
+    version 0.03
 
 SYNOPSIS
      use YAML::Tiny::Color;
