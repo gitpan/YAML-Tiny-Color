@@ -1,18 +1,19 @@
 package YAML::Tiny::Color;
 
-use 5.010;
+use 5.010001;
 use strict;
 use warnings;
 
 use Carp;
-use Scalar::Util qw(looks_like_number refaddr);
+use Scalar::Util qw(refaddr);
+use Scalar::Util::LooksLikeNumber qw(looks_like_number);
 use Term::ANSIColor qw(:constants);
 
 require Exporter;
 our @ISA    = qw(Exporter);
 our @EXPORT = qw(Dump);
 
-our $VERSION = '0.03'; # VERSION
+our $VERSION = '0.04'; # VERSION
 
 our $LineNumber = 0;
 
@@ -262,9 +263,11 @@ sub Dump {
 1;
 # ABSTRACT: Dump YAML with color
 
-
 __END__
+
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -272,7 +275,7 @@ YAML::Tiny::Color - Dump YAML with color
 
 =head1 VERSION
 
-version 0.03
+This document describes version 0.04 of YAML::Tiny::Color (from Perl distribution YAML-Tiny-Color), released on 2014-06-30.
 
 =head1 SYNOPSIS
 
@@ -298,6 +301,12 @@ Whether to include line numbers in dumps.
 
 Exported by default. Dump data as YAML. Die on errors.
 
+=head1 FAQ
+
+=head2 What about loading?
+
+Use other modules like L<YAML::Tiny>, L<YAML::Syck>, L<YAML::XS>.
+
 =head1 ACKNOWLEDGEMENTS
 
 YAML dumping code stolen from L<YAML::Tiny> (1.51).
@@ -310,16 +319,31 @@ At the time of this writing, none of syntax highlighting libraries on CPAN
 support YAML. For alternatives, you might want to take a look at Python's
 Pygments or Ruby's coderay.
 
+=head1 HOMEPAGE
+
+Please visit the project's homepage at L<https://metacpan.org/release/YAML-Tiny-Color>.
+
+=head1 SOURCE
+
+Source repository is at L<https://github.com/sharyanto/perl-YAML-Tiny-Color>.
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website L<https://rt.cpan.org/Public/Dist/Display.html?Name=YAML-Tiny-Color>
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
+
 =head1 AUTHOR
 
 Steven Haryanto <stevenharyanto@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Steven Haryanto.
+This software is copyright (c) 2014 by Steven Haryanto.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
